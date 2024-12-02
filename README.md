@@ -2,6 +2,7 @@ A simple python script to run your flatpaks from cli without typing out their fu
 
 A PKGBUILD file is included to install with makepkg.
 
+```
 Usage:flatrun <options> <packname> <runargs>
   Options:
     -h/--help        Prints out this page
@@ -18,3 +19,4 @@ Usage:flatrun <options> <packname> <runargs>
       "flatrun -f packname arg1 arg2"
       Will run
       "sh -c flatpak run pack.id arg1 arg2"
+```
