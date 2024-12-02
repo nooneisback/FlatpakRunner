@@ -1,13 +1,18 @@
+# Maintainer: nooneisback <real.nooneisback@gmail.com>
+
 pkgname=flatrun-git
 pkgver=1.0.0
 pkgrel=1
-pkgdesc="Runs flatpaks without having to type out their full ids"
+pkgdesc='Runs flatpaks without having to type out their full ids'
 arch=(any)
-url="https://github.com/nooneisback/FlatpakRunner"
+url='https://github.com/nooneisback/FlatpakRunner'
 license=('GPL')
-depends=('flatpak' 'python')
+depends=(
+    'flatpak'
+    'python'
+)
 source=('https://github.com/nooneisback/FlatpakRunner.git')
-sha256sums=("SKIP")
+sha256sums=('SKIP')
 
 package() {
     mkdir -p "${pkgdir}/usr/bin"
