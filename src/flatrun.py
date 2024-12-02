@@ -6,7 +6,7 @@ import sys
 wantedName:str = None
 isFore:bool = False
 isList:bool = False
-runOptions:List[string] = []
+runOptions:List[str] = []
 if True:
     isHelp:bool = False 
     iarg = -1
