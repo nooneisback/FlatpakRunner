@@ -19,6 +19,7 @@ if True:
             break
         elif arg=="--list" or arg=="-l":
             isList = True
+            wantedName = ""
         elif arg=="--foreground" or arg=="-f":
             isFore=True
         elif arg.startswith("--"):
@@ -31,12 +32,23 @@ if True:
         runOptions.append(sys.argv[iopt])
     # display help
     if (isHelp):
-        print("\nUsage: flatrun <options> <packname> <runoptions>")
-        print((' '*3)+"Options:")
-        print((' '*6)+"-h --help        Opens help")
-        print((' '*6)+"-f --foreground  Runs the flatpak in foreground instead of hiding its output")
-        print((' '*6)+"-l --list        Lists matching flatpaks without running them")
-        print((' '*3)+"Run options are parameters you want to add after flatpak run <name>")
+        print("""
+Usage:flatrun <options> <packname> <runargs>
+  Options:
+    -h/--help        Prints out this page
+    -f/--foreground  Tells flatrun not to append ">/dev/null 2>&1 &" to the end of the command. Use this to see the output.
+    -l/--list        Lists flatpaks matching the search pattern without running them
+  Packname: A search pattern for the package name/id. It will use the package name unless the search pattern includes a dot.
+    Example:
+      1 Some generic package  org.test.package
+      2 Some other package    org.generic.something
+      "flatrun generic" will run Some generic package
+      "flatrun .generic" will run Some other package
+  Runargs: will append these arguments to flatpak run packid
+    Example:
+      "flatrun -f packname arg1 arg2"
+      Will run
+      "sh -c flatpak run pack.id arg1 arg2""")
         sys.exit()
     elif (wantedName==None):
         raise(Exception( "No name provided."))
