@@ -1,5 +1,5 @@
 pkgname=flatrun-git
-pkgver=1.0.1
+pkgver=1.0.2
 pkgrel=1
 pkgdesc="Runs flatpaks without having to type out their full ids"
 arch=(any)
