@@ -27,7 +27,7 @@ if True:
             wantedName = arg
             break
     # search for runoptions
-    for iopt in range(iarg, len(sys.argv)-1):
+    for iopt in range(iarg+1, len(sys.argv)):
         runOptions.append(sys.argv[iopt])
     # display help
     if (isHelp):
