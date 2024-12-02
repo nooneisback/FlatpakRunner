@@ -120,8 +120,10 @@ else:
             continue
         break
 
-print(" ".join(["/bin/bash", "-c", f"flatpak run {selected+" "+(" ".join(runOptions))}"]))
+toRun = []
 if isFore:
-    subprocess.run(["/bin/bash", "-c", f"flatpak run {selected+" "+(" ".join(runOptions))}"])
+    toRun = ["/bin/bash", "-c", f"flatpak run {selected+" "+(" ".join(runOptions))}"]
 else: 
-    subprocess.run(["/bin/bash", "-c", f"flatpak run {selected+" "+(" ".join(runOptions))} >/dev/null 2>&1 &"])
+    toRun = ["/bin/bash", "-c", f"flatpak run {selected+" "+(" ".join(runOptions))} >/dev/null 2>&1 &"]
+print("Calling: "+(" ".joint(toRun)))
+subprocess.run(toRun)
