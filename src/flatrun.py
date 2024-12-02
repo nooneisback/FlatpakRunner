@@ -6,9 +6,11 @@ import sys
 wantedName:str = None
 isFore:bool = False
 isList:bool = False
+runOptions:List[string] = []
 if True:
     isHelp:bool = False 
     iarg = -1
+    # search for options
     for arg in sys.argv:
         iarg+=1
         if iarg==0: continue
@@ -17,20 +19,24 @@ if True:
             break
         elif arg=="--list" or arg=="-l":
             isList = True
-            wantedName = wantedName="" if wantedName==None else wantedName
-            break
         elif arg=="--foreground" or arg=="-f":
             isFore=True
         elif arg.startswith("--"):
             raise(Exception("Unknown option "+arg))
         else:
             wantedName = arg
+            break
+    # search for runoptions
+    for iopt in range(iarg, len(sys.argv)-1):
+        runOptions.append(sys.argv[iopt])
+    # display help
     if (isHelp):
-        print("\nUsage: flatrun <packname> <options>")
+        print("\nUsage: flatrun <options> <packname> <runoptions>")
         print((' '*3)+"Options:")
         print((' '*6)+"-h --help        Opens help")
         print((' '*6)+"-f --foreground  Runs the flatpak in foreground instead of hiding its output")
         print((' '*6)+"-l --list        Lists matching flatpaks without running them")
+        print((' '*3)+"Run options are parameters you want to add after flatpak run <name>")
         sys.exit()
     elif (wantedName==None):
         raise(Exception( "No name provided."))
