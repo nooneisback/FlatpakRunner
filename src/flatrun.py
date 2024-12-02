@@ -122,8 +122,8 @@ else:
 
 toRun = []
 if isFore:
-    toRun = ["/bin/bash", "-c", f"flatpak run {selected+" "+(" ".join(runOptions))}"]
+    toRun = ["sh", "-c", f"flatpak run {selected+" "+(" ".join(runOptions))}"]
 else: 
-    toRun = ["/bin/bash", "-c", f"flatpak run {selected+" "+(" ".join(runOptions))} >/dev/null 2>&1 &"]
+    toRun = ["sh", "-c", f"flatpak run {selected+" "+(" ".join(runOptions))} >/dev/null 2>&1 &"]
 print("Calling: "+(" ".join(toRun)))
 subprocess.run(toRun)
