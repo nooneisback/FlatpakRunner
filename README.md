@@ -20,3 +20,4 @@ Usage:flatrun <options> <packname> <runargs>
       Will run
       "sh -c flatpak run pack.id arg1 arg2"
 ```
+```
