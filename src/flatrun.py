@@ -120,6 +120,7 @@ else:
             continue
         break
 
+print(" ".join(["/bin/bash", "-c", f"flatpak run {selected+" "+(" ".join(runOptions))}"]))
 if isFore:
     subprocess.run(["/bin/bash", "-c", f"flatpak run {selected+" "+(" ".join(runOptions))}"])
 else: 
